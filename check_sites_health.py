@@ -20,7 +20,7 @@ def is_server_respond_with_200(urls):
         try:
             requests.get(url)
         except requests.exceptions.MissingSchema:
-            url = f'http://{url}'
+            url = 'http://{0}'.format(url)
         except requests.exceptions.ConnectionError:
             return None
         answer_from_code.append(
