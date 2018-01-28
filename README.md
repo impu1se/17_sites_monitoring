@@ -9,6 +9,5 @@ First you clone project on your computer, after you should run script as `python
 - www.yandex.com
 - etc...)    
 For help run script with key **-h** or **--help**
-# Project Goals
-
-The code is written for educational purposes. Training course for web-developers - [DEVMAN.org](https://devman.org)
+# Warning
+If you don't input file with URL you will have message about it.
