@@ -7,8 +7,8 @@ import datetime
 
 def load_urls4check(path):
     try:
-        with open(path, 'r') as f:
-            urls = f.read().split()
+        with open(path, 'r') as file:
+            urls = file.read().split()
     except FileNotFoundError:
         urls = None
     return urls
@@ -24,7 +24,7 @@ def is_server_respond_with_200(urls):
         except requests.exceptions.ConnectionError:
             return None
         answer_from_code.append(
-            'Yes' if requests.get(url).status_code == 200 else 'No'
+            requests.get(url).status_code == 200
         )
     return answer_from_code
 
@@ -37,7 +37,7 @@ def get_domain_expiration_date(domain_name):
         exp_date = whois.query(url).expiration_date - \
             datetime.timedelta(days=31)
         status_of_pay.append(
-            'Yes' if exp_date.month >= 1 else 'No'
+            exp_date.month >= 1
         )
     return status_of_pay
 
